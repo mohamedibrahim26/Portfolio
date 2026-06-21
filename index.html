@@ -3,7 +3,30 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohamed Ibrahim — Software Engineer & Cybersecurity Researcher</title>
+  <title>Mohamed Ibrahim | Software Engineer & Cybersecurity Researcher</title>
+  <style>
+    /* ── POSTER MODAL ── */
+    .poster-modal-overlay {
+      display:none; position:fixed; inset:0; z-index:2000;
+      background:rgba(0,0,0,.75); backdrop-filter:blur(4px);
+      align-items:center; justify-content:center; padding:1.5rem;
+    }
+    .poster-modal-overlay.open { display:flex; }
+    .poster-modal-box {
+      position:relative; max-width:960px; width:100%;
+      border-radius:16px; overflow:hidden;
+      box-shadow:0 24px 80px rgba(0,0,0,.5);
+    }
+    .poster-modal-box img { width:100%; height:auto; display:block; }
+    .poster-modal-close {
+      position:absolute; top:12px; right:12px;
+      width:36px; height:36px; border-radius:50%;
+      background:rgba(0,0,0,.6); border:none; cursor:pointer;
+      color:#fff; font-size:1.1rem; display:flex; align-items:center; justify-content:center;
+      transition:background .2s;
+    }
+    .poster-modal-close:hover { background:rgba(255,255,255,.2); }
+  </style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -253,6 +276,7 @@
       font-size:.78rem; font-weight:600; color:var(--text-muted);
       border:1px solid var(--border); border-radius:6px; padding:.28rem .65rem;
       text-decoration:none; transition:color .2s,border-color .2s,background .2s;
+      background:transparent; cursor:pointer; font-family:'Inter',sans-serif;
     }
     .proj-link-btn:hover { color:var(--accent); border-color:var(--accent); background:var(--accent-bg); }
     .proj-period { font-size:.73rem; font-weight:600; color:var(--accent); letter-spacing:.06em; margin-bottom:.35rem; }
@@ -329,7 +353,7 @@
   </ul>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
-    <a href="#contact" class="nav-cta">Hire Me</a>
+    <a href="#contact" class="nav-cta">Get In Touch</a>
     <div class="hamburger" onclick="toggleDrawer()">
       <span></span><span></span><span></span>
     </div>
@@ -355,13 +379,11 @@
         <span class="typed-text" id="typedText"></span><span class="typed-cursor"></span>
       </div>
       <p class="hero-bio">
-        MSc Cybersecurity candidate at Jönköping University with a background in full-stack development.
+        MSc Cybersecurity candidate (Jönköping University, 2026) with a background in full-stack development.
         I build scalable applications and conduct research at the intersection of cybersecurity, AI systems, and network security.
       </p>
       <div class="hero-actions">
-        <a href="./CV.pdf" class="btn-primary" target="_blank">
-          ↓ Download CV
-        </a>
+        <a href="#projects" class="btn-primary">View My Work →</a>
         <a href="#contact" class="btn-ghost">Get In Touch →</a>
       </div>
       <div class="hero-stats">
@@ -370,7 +392,7 @@
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num"><span class="counter" data-target="3">0</span></div>
+          <div class="stat-num"><span class="counter" data-target="4">0</span></div>
           <div class="stat-label">Research Projects</div>
         </div>
         <div class="stat-card">
@@ -378,8 +400,8 @@
           <div class="stat-label">Papers Screened</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num"><span class="counter" data-target="3">0</span></div>
-          <div class="stat-label">Degrees</div>
+          <div class="stat-num"><span class="counter" data-target="2">0</span></div>
+          <div class="stat-label">Degrees Completed</div>
         </div>
       </div>
       <div class="social-strip">
@@ -416,13 +438,13 @@
     <div class="about-grid">
       <div class="about-bio reveal">
         <p>
-          I'm a software engineer and cybersecurity researcher with a multidisciplinary background spanning mechanical engineering, computer engineering, and cybersecurity. I am pursuing MSc in Cybersecurity at Jönköping University, Sweden, where my research focused on evaluating cybersecurity awareness frameworks in SMEs.
+          I'm a software engineer and cybersecurity researcher with a multidisciplinary background spanning mechanical engineering, computer engineering, and cybersecurity. I am completing my MSc in Cybersecurity at Jönköping University, Sweden, where my thesis research focused on evaluating cybersecurity awareness measurement practices in SMEs using a PRISMA-based Systematic Literature Review.
         </p>
         <p>
-          On the engineering side, I have hands-on experience building full-stack web applications using React, Node.js, and TypeScript. I'm increasingly focused on the intersection of AI-assisted systems, security research, and human-computer interaction — and I enjoy communicating complex technical findings in clear, actionable ways.
+          On the engineering side, I have hands-on experience building full-stack web applications using React, Node.js, and TypeScript. I'm increasingly focused on the intersection of AI-assisted systems, security research, and human-computer interaction, and I enjoy communicating complex technical findings in clear, actionable ways.
         </p>
         <p>
-          I'm currently exploring opportunities in software engineering, cybersecurity research, or roles that blend both — including PhD positions and industry roles in network security and application development.
+          I'm currently exploring opportunities in software engineering, cybersecurity research, or roles that blend both, including PhD positions and industry roles in network security and application development.
         </p>
         <div class="cert-card">
           <div class="cert-icon">🏅</div>
@@ -466,7 +488,9 @@
           <span class="chip">React.js</span>
           <span class="chip">Node.js</span>
           <span class="chip">Express.js</span>
+          <span class="chip">FastAPI</span>
           <span class="chip">REST APIs</span>
+          <span class="chip">JWT Auth</span>
           <span class="chip">Secure Coding</span>
           <span class="chip">Full-Stack Dev</span>
         </div>
@@ -476,12 +500,16 @@
         <div class="skill-card-header"><span class="skill-card-icon">🤖</span><span class="skill-card-title">AI, ML & Data</span></div>
         <div class="chip-wrap">
           <span class="chip">ML Fundamentals</span>
-          <span class="chip">LLM Concepts</span>
-          <span class="chip">AI-Assisted Reasoning</span>
+          <span class="chip">LLM Fine-tuning</span>
+          <span class="chip">LoRA / PEFT</span>
+          <span class="chip">RAG</span>
+          <span class="chip">SHAP</span>
+          <span class="chip">LIME</span>
+          <span class="chip">Anchors (XAI)</span>
           <span class="chip">PyTorch</span>
           <span class="chip">Hugging Face</span>
-          <span class="chip">LoRA Fine-tuning</span>
-          <span class="chip">Data Analysis</span>
+          <span class="chip">ChromaDB</span>
+          <span class="chip">AI-Assisted Reasoning</span>
           <span class="chip">Structured Evaluation</span>
         </div>
       </div>
@@ -506,9 +534,10 @@
         <div class="chip-wrap">
           <span class="chip neutral">Git</span>
           <span class="chip neutral">Linux</span>
+          <span class="chip neutral">PostgreSQL</span>
           <span class="chip neutral">MongoDB</span>
-          <span class="chip neutral">Google Colab</span>
-          <span class="chip neutral">Excel / PowerPoint</span>
+          <span class="chip neutral">Prisma ORM</span>
+          <span class="chip neutral">Google Colab / Kaggle</span>
           <span class="chip neutral">System Design</span>
           <span class="chip neutral">Distributed Systems</span>
           <span class="chip neutral">API Integration</span>
@@ -551,7 +580,7 @@
           <div class="tl-org">Cabto Infotech Private Limited, Bengaluru</div>
           <div class="tl-role">Full-Stack Developer</div>
           <ul class="tl-list">
-            <li>Developed and deployed a full-stack cab-booking platform using Node.js, Express, and React.js — improving processing efficiency by 30%.</li>
+            <li>Developed and deployed a full-stack cab-booking platform using Node.js, Express, and React.js, improving processing efficiency by 30%.</li>
             <li>Applied secure coding practices including input validation and secure data handling.</li>
             <li>Designed scalable backend systems focused on data integrity, availability, and operational risk reduction.</li>
           </ul>
@@ -563,7 +592,7 @@
           <div class="tl-org">IIIT Design & Manufacturing, Kancheepuram</div>
           <div class="tl-role">Research Trainee Intern</div>
           <ul class="tl-list">
-            <li>Analysed Augmented Reality's impact on User Experience — 25% increase in user satisfaction.</li>
+            <li>Analysed Augmented Reality's impact on User Experience, resulting in a 25% increase in user satisfaction.</li>
             <li>Evaluated 3 Agile prototyping methods, achieving 40% quicker MVP iterations.</li>
             <li>Developed Gesture-based Interaction systems, improving user engagement by 25%.</li>
           </ul>
@@ -590,9 +619,9 @@
           <div class="tl-dot"></div>
           <div class="tl-date">Aug 2025 – Jun 2026</div>
           <div class="tl-org">Jönköping University, Sweden</div>
-          <div class="tl-role">Pursuing MSc in Cybersecurity</div>
+          <div class="tl-role">MSc in Cybersecurity (Expected 2026)</div>
           <ul class="tl-list">
-            <li>Research focus: cybersecurity awareness assessment for SMEs using systematic literature review (SLR/PRISMA).</li>
+            <li>Thesis: PRISMA-based SLR on cybersecurity awareness measurement indicators in organisations, screening 4,510 papers across IEEE, ACM, Scopus, and SpringerLink; 52 studies selected.</li>
             <li>Applied behavioural theories (PMT, TPB) and explored AI-assisted security tools and NLP/ML applications.</li>
           </ul>
         </div>
@@ -601,7 +630,7 @@
           <div class="tl-dot"></div>
           <div class="tl-date">Aug 2021 – Jun 2023</div>
           <div class="tl-org">VIT University</div>
-          <div class="tl-role">M.Tech — Computer Engineering (Cyber-Physical Systems) · CGPA: 8.04/10</div>
+          <div class="tl-role">M.Tech in Computer Engineering (Cyber-Physical Systems) · CGPA: 8.04/10</div>
           <ul class="tl-list">
             <li>Specialisation in Cyber-Physical Systems with focus on distributed architectures and system design.</li>
           </ul>
@@ -611,7 +640,7 @@
           <div class="tl-dot"></div>
           <div class="tl-date">Aug 2017 – Jun 2021</div>
           <div class="tl-org">Presidency University</div>
-          <div class="tl-role">B.Tech — Mechanical Engineering</div>
+          <div class="tl-role">B.Tech in Mechanical Engineering</div>
           <ul class="tl-list">
             <li>Foundation in analytical thinking, engineering design, and applied mathematics.</li>
           </ul>
@@ -636,20 +665,23 @@
         <div class="proj-body">
           <div class="proj-head">
             <span class="proj-emoji">🛡️</span>
-            <div class="proj-links"></div>
+            <div class="proj-links">
+              <a href="https://github.com/mohamedibrahim26/masters-thesis-csa-indicators" class="proj-link-btn" target="_blank">⎈ GitHub</a>
+              <a href="https://github.com/mohamedibrahim26/masters-thesis-csa-indicators/blob/main/Mastersthesis.pdf" class="proj-link-btn" target="_blank">📄 Thesis</a>
+              <button class="proj-link-btn" onclick="openPoster('https://raw.githubusercontent.com/mohamedibrahim26/masters-thesis-csa-indicators/main/Master%20Thesis%20Poster.jpeg')">📊 Poster</button>
+            </div>
           </div>
-          <div class="proj-period">Jan 2026 – May 2026</div>
-          <div class="proj-title">Cybersecurity Awareness in SMEs: A Systematic Literature Review</div>
+          <div class="proj-period">Jan 2026 – Jun 2026 · MSc Thesis · Jönköping University</div>
+          <div class="proj-title">Indicators and Practices for Assessing Cybersecurity Awareness in SMEs</div>
           <p class="proj-desc">
-            Rigorous PRISMA-based SLR screening 3,754 research papers across IEEE, ACM, Scopus, and Springer.
-            Identified behavioural indicators and KPIs for cybersecurity awareness evaluation, applying PMT and TPB
-            frameworks to develop a structured classification model for SME security assessment.
+            PRISMA-based Systematic Literature Review screening 4,510 papers (3,754 after deduplication) across IEEE Xplore, ACM, Scopus, and SpringerLink; 52 studies selected.
+            Identified and classified cybersecurity awareness indicators into four categories (self-reported, behavioural, organisational, knowledge-based) and uncovered a significant research gap in SME-focused measurement frameworks.
           </p>
           <div class="proj-tags">
             <span class="proj-tag">Cybersecurity</span>
             <span class="proj-tag">SLR / PRISMA</span>
             <span class="proj-tag">PMT / TPB</span>
-            <span class="proj-tag">Research</span>
+            <span class="proj-tag">MSc Thesis</span>
             <span class="proj-tag">SME</span>
           </div>
         </div>
@@ -664,18 +696,22 @@
               <a href="https://github.com/mohamedibrahim26/nla-kth" class="proj-link-btn" target="_blank">⎈ GitHub</a>
             </div>
           </div>
-          <div class="proj-period">KTH Collaboration</div>
+          <div class="proj-period">2026 · KTH ASSERT-lab PhD Recruitment Task</div>
           <div class="proj-title">Natural Language Autoencoders on a Small Open Model</div>
           <p class="proj-desc">
-            Explored natural language autoencoder architectures using compact open-source language models —
-            investigating latent space representations and reconstruction fidelity for NLP tasks,
-            with focus on efficiency and interpretability on limited compute.
+            Faithful small-scale reimplementation of Anthropic's Natural Language Autoencoder paper on Qwen2.5-0.5B,
+            conducted as a KTH ASSERT-lab task under Prof. Monperrus. Trained a paired verbalizer and reconstructor using LoRA,
+            achieving FVE of 3.0% on generated descriptions vs –6.5% for random text. A paraphrase faithfulness test confirmed
+            the bottleneck carries genuine semantic content: surface rewrites left FVE essentially unchanged (0.032 vs 0.030),
+            reproducing the paper's qualitative confabulation finding at small scale.
           </p>
           <div class="proj-tags">
             <span class="proj-tag">NLP</span>
-            <span class="proj-tag">Autoencoders</span>
+            <span class="proj-tag">Mechanistic Interpretability</span>
+            <span class="proj-tag">LoRA / PEFT</span>
             <span class="proj-tag">PyTorch</span>
             <span class="proj-tag">Hugging Face</span>
+            <span class="proj-tag">Qwen</span>
             <span class="proj-tag">Python</span>
           </div>
         </div>
@@ -685,25 +721,31 @@
         <div class="proj-top-bar"></div>
         <div class="proj-body">
           <div class="proj-head">
-            <span class="proj-emoji">📊</span>
-            <div class="proj-links"></div>
+            <span class="proj-emoji">🤖</span>
+            <div class="proj-links">
+              <a href="https://github.com/mohamedibrahim26/explainable-ai" class="proj-link-btn" target="_blank">⎈ GitHub</a>
+            </div>
           </div>
-          <div class="proj-period">Jan 2026 – Present</div>
-          <div class="proj-title">AI-Assisted Cyber Risk Assessment & Breach Intelligence Dashboard</div>
+          <div class="proj-period">2025 – 2026</div>
+          <div class="proj-title">Orion-XAI: Fine-Tuned LLM for Explainable AI in Cybersecurity</div>
           <p class="proj-desc">
-            Prototype web tool where users enter a domain and receive an LLM-generated structured risk report —
-            combining public breach intelligence, domain security checks, and AI reasoning.
-            Severity-scored (1–10) findings explained in plain language for both technical and non-technical users.
+            Full-stack AI chat application built around a custom fine-tuned model: Llama 3.2 3B trained with LoRA on 2,918 instruction examples
+            covering SHAP, LIME, and Anchors for SOC decision support. Dataset built from scratch grounded in primary XAI literature (Ribeiro et al. 2016/2018, Lundberg &amp; Lee 2017).
+            Includes a RAG pipeline (ChromaDB + FastAPI), multi-provider LLM fallback (Groq, OpenAI, Anthropic, Ollama), JWT auth system, admin dashboard, and workspace/project organisation.
           </p>
           <div class="proj-tags">
-            <span class="proj-tag">LLM</span>
-            <span class="proj-tag">Cybersecurity</span>
-            <span class="proj-tag">React</span>
+            <span class="proj-tag">LLM Fine-tuning</span>
+            <span class="proj-tag">LoRA</span>
+            <span class="proj-tag">XAI</span>
+            <span class="proj-tag">RAG</span>
             <span class="proj-tag">Node.js</span>
-            <span class="proj-tag">Risk Assessment</span>
+            <span class="proj-tag">FastAPI</span>
+            <span class="proj-tag">PostgreSQL</span>
+            <span class="proj-tag">Cybersecurity</span>
           </div>
         </div>
       </div>
+
 
     </div>
   </div>
@@ -717,7 +759,7 @@
     <div class="contact-grid">
       <div class="reveal">
         <p class="contact-intro">
-          I'm open to new opportunities — full-time engineering roles, research collaborations, or PhD positions.
+          I'm open to new opportunities: full-time engineering roles, research collaborations, or PhD positions.
           Whether you have a question or just want to say hi, my inbox is always open.
         </p>
         <div class="contact-item">
@@ -758,6 +800,14 @@
   </div>
 </section>
 
+<!-- ══ POSTER MODAL ══ -->
+<div class="poster-modal-overlay" id="posterModal" onclick="closePoster(event)">
+  <div class="poster-modal-box">
+    <button class="poster-modal-close" onclick="closePosterBtn()">✕</button>
+    <img src="" alt="Project Poster" id="posterImg"/>
+  </div>
+</div>
+
 <!-- ══ FOOTER ══ -->
 <footer>
   <p>© 2026 Mohamed Ibrahim &nbsp;·&nbsp; <a href="https://github.com/mohamedibrahim26" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/mohamedibrahim26/" target="_blank">LinkedIn</a></p>
@@ -765,7 +815,7 @@
 
 <script>
 /* ── TYPING ANIMATION ── */
-const roles = ['React Developer', 'Cybersecurity Researcher', 'AI Developer', 'MSc Graduate'];
+const roles = ['React Developer', 'Cybersecurity Researcher', 'AI Developer', 'MSc Candidate (2026)'];
 let ri = 0, ci = 0, deleting = false;
 const el = document.getElementById('typedText');
 
@@ -846,6 +896,21 @@ function toggleDrawer() {
 function closeDrawer() {
   document.getElementById('mobileDrawer').classList.remove('open');
 }
+
+/* ── POSTER MODAL ── */
+function openPoster(src) {
+  document.getElementById('posterImg').src = src;
+  document.getElementById('posterModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePosterBtn() {
+  document.getElementById('posterModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closePoster(e) {
+  if (e.target === document.getElementById('posterModal')) closePosterBtn();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePosterBtn(); });
 
 /* ── CONTACT FORM (Formspree) ── */
 async function handleSubmit(e) {
